@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+:root {
+  /* Comfort & Accessibility: Refined Luxury Light Theme */
+  --bg-primary: #F9F7F2;        /* Softer, Warmer Off-White */
+  --bg-secondary: #EBE9E4;      /* Slightly darker for contrast */
+  --bg-card: #FFFFFF;           
+  --text-primary: #2D2A26;      /* Softer, readable Charcoal-Dark */
+  --text-secondary: #5D5953;    /* Comfortable readable gray */
+  --border-primary: #D1CEC5;    
+  --border-secondary: #C4C0B6;  
+  
+  --accent-gold: #B68D3E;       /* Slightly adjusted for contrast */
+  --accent-gold-hover: #967433;
+  --accent-gold-luxe: #C5A031;  
+}
+
+.dark {
+  /* Comfort & Accessibility: Refined Luxury Dark Theme */
+  --bg-primary: #121212;        
+  --bg-secondary: #181818;      
+  --bg-card: #1F1F1F;           
+  --text-primary: #E0DED9;      /* Off-White, comfortable, not intense */
+  --text-secondary: #A8A6A0;    /* Softer Light Warm Gray */
+  --border-primary: #333333;    
+  --border-secondary: #444444;  
+  
+  --accent-gold: #D4AF37;       
+  --accent-gold-hover: #E3BC42;
+  --accent-gold-luxe: #F0D585;  
+}
+
+@theme {
+  --font-sans: "Inter", "Cairo", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  /* Dynamically map standard color codes to the active theme CSS variables */
+  --color-charcoal-50: var(--bg-primary);
+  --color-charcoal-100: var(--bg-secondary);
+  --color-charcoal-200: var(--border-primary);
+  --color-charcoal-300: var(--border-secondary);
+  --color-charcoal-400: var(--text-secondary);
+  --color-charcoal-500: var(--text-secondary);
+  --color-charcoal-600: var(--text-secondary);
+  --color-charcoal-700: var(--text-primary);
+  --color-charcoal-800: var(--bg-card);
+  --color-charcoal-900: var(--bg-card);
+  --color-charcoal-950: var(--bg-primary);
+  
+  --color-gold-50: var(--bg-primary);
+  --color-gold-100: var(--bg-secondary);
+  --color-gold-200: var(--border-primary);
+  --color-gold-300: var(--accent-gold);
+  --color-gold-400: var(--accent-gold);
+  --color-gold-500: var(--accent-gold);
+  --color-gold-600: var(--accent-gold-hover);
+  --color-gold-700: var(--accent-gold-hover);
+  --color-gold-luxe: var(--accent-gold);
+}
+
+/* Custom Base Styles for Premium Aesthetics */
+html {
+  scroll-behavior: smooth;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+body {
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+/* Custom class mappings to guarantee fallback theme reactivity */
+.bg-white {
+  background-color: var(--bg-card) !important;
+}
+
+.text-charcoal-900 {
+  color: var(--text-primary) !important;
+}
+
+.text-charcoal-800 {
+  color: var(--text-primary) !important;
+}
+
+.text-charcoal-500 {
+  color: var(--text-secondary) !important;
+}
+
+.border-charcoal-200 {
+  border-color: var(--border-primary) !important;
+}
+
+/* Enable global smooth transitions for theme color variables */
+*, *::before, *::after {
+  transition-property: background-color, border-color, color, fill, stroke, box-shadow, text-decoration-color;
+  transition-duration: 350ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: rgba(212, 175, 55, 0.15);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(189, 142, 67, 0.25);
+  border-radius: 999px;
+}
+
+/* Glassmorphism Classes */
+.glass-premium {
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.dark .glass-premium {
+  background: rgba(30, 30, 30, 0.7);
+  border: 1px solid rgba(212, 175, 55, 0.08);
+}
+
+.glass-premium {
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(189, 142, 67, 0.12);
+}
+
+/* Subtle gold reflection */
+.gold-glow {
+  box-shadow: 0 0 25px rgba(212, 175, 55, 0.15);
+}
+
+/* Premium Animations */
+@keyframes luxurySpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes heartbeatLuxe {
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.03); opacity: 1; }
+}
+
+.animate-spin-luxury {
+  animation: luxurySpin 10s linear infinite;
+}
+
+.animate-heartbeat-luxe {
+  animation: heartbeatLuxe 3s ease-in-out infinite;
+}
